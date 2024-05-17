@@ -1,0 +1,49 @@
+.span{
+    color: #f8bb21;
+}
+
+h1{
+    color: #fff;
+    font-size: 50px;
+    position: relative;
+}
+
+h1::after{
+    content:'';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--white);
+}
+
+.sec-text-big{
+    color: #ccc;
+    font-size: 20px;
+    margin: 15px;
+}
+
+
+.faq-content {
+  margin: 0 auto;
+  color: #ccc;
+}
+
+h2{
+    margin-top: 20px;
+    color: #f8bb21;
+}
+
+h3{
+    color: #ccc;
+}
+
+a{
+    text-decoration: none;
+    color: #f8bb21;
+}
+
+.logo{
+    color: #fff;
+}
