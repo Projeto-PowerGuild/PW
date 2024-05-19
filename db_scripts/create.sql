@@ -1,5 +1,3 @@
-DROP DATABASE powerguild;
-
 CREATE DATABASE IF NOT EXISTS powerguild;
 
 USE powerguild;
