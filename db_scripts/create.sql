@@ -1,3 +1,5 @@
+DROP DATABASE powerguild;
+
 CREATE DATABASE IF NOT EXISTS powerguild;
 
 USE powerguild;
@@ -32,8 +34,7 @@ CREATE TABLE IF NOT EXISTS users (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     name VARCHAR(250) NOT NULL,
     email VARCHAR(250) NOT NULL,
-    pwd VARCHAR(50) NOT NULL,
-    fk_wishlists_id INT NOT NULL
+    pwd VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS customers (
@@ -117,9 +118,6 @@ CREATE TABLE IF NOT EXISTS products_wishlists (
 
 ALTER TABLE customers 
     ADD CONSTRAINT fk_customers_users FOREIGN KEY (fk_user_id) REFERENCES users(id);
-
-ALTER TABLE users
-    ADD CONSTRAINT fk_users_wishlists FOREIGN KEY (fk_wishlists_id) REFERENCES wishlists(id);
 
 ALTER TABLE products 
     ADD CONSTRAINT fk_products_developers FOREIGN KEY (fk_developers_id) REFERENCES developers(id),

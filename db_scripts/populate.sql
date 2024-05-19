@@ -54,13 +54,6 @@ INSERT INTO wishlists (added_date, fk_user_id) VALUES
 ('2024-05-18 00:00:00', 4),
 ('2024-05-18 00:00:00', 5);
 
--- Update the users table to add fk_wishlists_id values
-UPDATE users SET fk_wishlists_id = 1 WHERE id = 1;
-UPDATE users SET fk_wishlists_id = 2 WHERE id = 2;
-UPDATE users SET fk_wishlists_id = 3 WHERE id = 3;
-UPDATE users SET fk_wishlists_id = 4 WHERE id = 4;
-UPDATE users SET fk_wishlists_id = 5 WHERE id = 5;
-
 -- Insert data into the customers table
 INSERT INTO customers (address, postal_code, phone_number, fk_user_id) VALUES 
 ('Scranton Business Park, 1725 Slough Avenue', '18503', '123456789', 1),
