@@ -25,9 +25,10 @@
         <div class="form-container sign-in-container">
             <form id="login-form" onsubmit="login(event)">
                 <h1 class="bigTitle">Sign in</h1>
-                <input type="email" id="email-login" placeholder="Email">
-                <input type="password" id="password-login" placeholder="Password">
+                <input type="email" id="email-login" placeholder="Email" required>
+                <input type="password" id="password-login" placeholder="Password" required>
                 <button type="submit">Sign In</button>
+                <p id="error-message" style="color:red; display:none;"></p>
             </form>
         </div>
         <div class="overlay-container">

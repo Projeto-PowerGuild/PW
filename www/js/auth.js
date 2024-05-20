@@ -10,48 +10,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    let users = [];
+
+    // Carregar dados do JSON local (substitua esta parte com a lógica correta para seu ambiente)
+    fetch('path/to/your/users.json')
+        .then(response => response.json())
+        .then(data => {
+            users = data;
+        })
+        .catch(error => console.error("Error loading users:", error));
+
     function displayUserInfo(user) {
         if (user && user.username && user.email) {
-            // Create the CSS link element
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = './css/user.css';
-
-            document.head.appendChild(link);
-
-            const content = `
-        <section>
-            <div id="page-top">
-                <h1 class="mainTit">Profile</h1>
-            </div>
-
-            <div id="user-info">
-                <img src="../../ASSETS/user/profile.png" alt="" id="user-photo" style="cursor: pointer;">
-                <input type="file" id="profile-picture-input" accept="image/*" style="display: none;">
-                <button id="save-button" style="display: none;">Save</button>
-
-                <div id="info-1">
-                    <div id="user-email-container">
-                        <h1 id="user-nick">Username: ${user.username}</h1>
-                        <p id="user-email">Email: ${user.email}</p>
-                    </div>
-                    <button id="logout-button">Logout</button>
-                </div>
-            </div>
-        </section>
-        `;
-            document.getElementById("mainContent").innerHTML = content;
-
-            // Add event listener to the image to open file dialog
-            document.getElementById("user-photo").addEventListener("click", function () {
-                document.getElementById("profile-picture-input").click();
-            });
-
-
-            // Add event listener to logout button
-            document.getElementById("logout-button").addEventListener("click", function () {
-                logout();
-            });
+            // Criação e manipulação dos elementos DOM...
         } else {
             console.error("User data is incomplete:", user);
             displayLoginForm();
@@ -76,83 +47,119 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-
-    document.addEventListener("DOMContentLoaded", function () {
-        checkSession();
-    });
-
     function displayLoginForm() {
-        const content = `
-            <h2>Login/Signup</h2>
-            <form id="loginForm">
-                <input type="text" id="username" placeholder="Username" required>
-                <input type="password" id="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-                <button type="button" id="signupButton">Signup</button>
-            </form>
-        `;
-        document.getElementById("mainContent").innerHTML = content;
+        const mainContent = document.getElementById("mainContent");
+        mainContent.textContent = ''; // Clear previous content
 
-        const loginForm = document.getElementById("loginForm");
-        loginForm.addEventListener("submit", function (event) {
+        const heading = document.createElement('h2');
+        heading.textContent = 'Login/Signup';
+
+        const form = document.createElement('form');
+        form.id = 'loginForm';
+
+        const usernameInput = document.createElement('input');
+        usernameInput.type = 'text';
+        usernameInput.id = 'username';
+        usernameInput.placeholder = 'Username';
+        usernameInput.required = true;
+
+        const passwordInput = document.createElement('input');
+        passwordInput.type = 'password';
+        passwordInput.id = 'password';
+        passwordInput.placeholder = 'Password';
+        passwordInput.required = true;
+
+        const loginButton = document.createElement('button');
+        loginButton.type = 'submit';
+        loginButton.textContent = 'Login';
+
+        const signupButton = document.createElement('button');
+        signupButton.type = 'button';
+        signupButton.id = 'signupButton';
+        signupButton.textContent = 'Signup';
+
+        form.appendChild(usernameInput);
+        form.appendChild(passwordInput);
+        form.appendChild(loginButton);
+        form.appendChild(signupButton);
+        mainContent.appendChild(heading);
+        mainContent.appendChild(form);
+
+        form.addEventListener("submit", function (event) {
             event.preventDefault();
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
+            const username = usernameInput.value;
+            const password = passwordInput.value;
             login(username, password);
         });
 
-        const signupButton = document.getElementById("signupButton");
         signupButton.addEventListener("click", function () {
             displaySignupForm();
         });
     }
 
     function displaySignupForm() {
-        const content = `
-            <h2>Signup</h2>
-            <form id="signupForm">
-                <input type="text" id="username" placeholder="Username" required><br>
-                <input type="email" id="email" placeholder="email" required><br>
-                <input type="password" id="password" placeholder="Password" required><br>
-                <button type="submit">Signup</button>
-            </form>
-        `;
-        document.getElementById("mainContent").innerHTML = content;
+        const mainContent = document.getElementById("mainContent");
+        mainContent.textContent = ''; // Clear previous content
 
-        const signupForm = document.getElementById("signupForm");
-        signupForm.addEventListener("submit", function (event) {
+        const heading = document.createElement('h2');
+        heading.textContent = 'Signup';
+
+        const form = document.createElement('form');
+        form.id = 'signupForm';
+
+        const usernameInput = document.createElement('input');
+        usernameInput.type = 'text';
+        usernameInput.id = 'username';
+        usernameInput.placeholder = 'Username';
+        usernameInput.required = true;
+
+        const emailInput = document.createElement('input');
+        emailInput.type = 'email';
+        emailInput.id = 'email';
+        emailInput.placeholder = 'email';
+        emailInput.required = true;
+
+        const passwordInput = document.createElement('input');
+        passwordInput.type = 'password';
+        passwordInput.id = 'password';
+        passwordInput.placeholder = 'Password';
+        passwordInput.required = true;
+
+        const signupButton = document.createElement('button');
+        signupButton.type = 'submit';
+        signupButton.textContent = 'Signup';
+
+        form.appendChild(usernameInput);
+        form.appendChild(emailInput);
+        form.appendChild(passwordInput);
+        form.appendChild(signupButton);
+        mainContent.appendChild(heading);
+        mainContent.appendChild(form);
+
+        form.addEventListener("submit", function (event) {
             event.preventDefault();
-            const username = document.getElementById("username").value;
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
+            const username = usernameInput.value;
+            const email = emailInput.value;
+            const password = passwordInput.value;
             signup(username, email, password);
         });
     }
 
-    function login(event) {
-        event.preventDefault();
+    function login(username, password) {
         const email = document.getElementById('email-login').value;
         const password = document.getElementById('password-login').value;
-        fetch('/auth/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password })
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    console.log("Login successful");
-                    sessionStorage.setItem('isLoggedIn', 'true');
-                    checkSession();
-                } else {
-                    alert("Login failed: " + data.message);
-                }
-            })
-            .catch(error => {
-                console.error("Error during login:", error);
-            });
+
+        const user = users.find(user => user.email === email && user.pwd === password);
+        if (user) {
+            console.log("Login successful");
+            sessionStorage.setItem('isLoggedIn', 'true');
+            sessionStorage.setItem('user', JSON.stringify(user));
+            checkSession();
+        } else {
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.textContent = "Login failed: Invalid email or password.";
+            errorMessage.style.display = 'block';
+        }
     }
 
     function signup(event) {
@@ -192,5 +199,3 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.error("Error logging out:", error));
     }
 });
-
-
