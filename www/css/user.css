@@ -81,14 +81,14 @@ section{
     font-weight: bold;
     padding: 1rem;
     background-color: transparent;
-    border: 2px solid #cb6ce6;
+    border: 2px solid #f8bb21;
     cursor: pointer;
     transition: .3s ease;
 }
 
 #logout-button:hover{
     transform: scale(.9);
-    border: 2px dashed #cb6ce6;
+    border: 2px dashed #f8bb21;
 }
 
 #line{

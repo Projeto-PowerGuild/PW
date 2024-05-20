@@ -44,8 +44,8 @@ a {
 }
 
 button {
-    border: 1px solid #cb6ce6;
-    background-color: #cb6ce6;
+    border: 1px solid #f8bb21;
+    background-color: #f8bb21;
     color: #FFFFFF;
     font-size: 12px;
     font-weight: bold;
@@ -155,9 +155,9 @@ input {
 }
 
 .overlay {
-    background: #cb6ce6;
-    background: -webkit-linear-gradient(to right, #cb6ce6, #cb6ce6);
-    background: linear-gradient(to right, #cb6ce6, #cb6ce6);
+    background: #f8bb21;
+    background: -webkit-linear-gradient(to right, #f8bb21, #f8bb21);
+    background: linear-gradient(to right, #f8bb21, #f8bb21);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
@@ -230,15 +230,15 @@ input {
     }
 
     #sign-up-phone{
-        color: #cb6ce6;
-        border: 2px solid #cb6ce6;
+        color: #f8bb21;
+        border: 2px solid #f8bb21;
         background-color: transparent;
         display: flex;
     }
 
     #sign-in-phone{
-        color: #cb6ce6;
-        border: 2px solid #cb6ce6;
+        color: #f8bb21;
+        border: 2px solid #f8bb21;
         background-color: transparent;
         display: flex;
     }
