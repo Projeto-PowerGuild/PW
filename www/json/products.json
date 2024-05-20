@@ -10,7 +10,8 @@
         "type": "Digital",
         "category": "Action-Adventure",
         "fk_developers_id": 1,
-        "fk_publishers_id": 2
+        "fk_publishers_id": 2,
+        "image": "../ASSETS/CEOS/transferir (1).jpeg"
     },
     {
         "id": 2,
@@ -23,7 +24,8 @@
         "type": "Digital",
         "category": "Shooter",
         "fk_developers_id": 2,
-        "fk_publishers_id": 3
+        "fk_publishers_id": 3,
+        "image": "../ASSETS/CEOS/transferir (1).jpeg"
     },
     {
         "id": 3,
@@ -36,7 +38,8 @@
         "type": "Digital",
         "category": "RPG",
         "fk_developers_id": 1,
-        "fk_publishers_id": 2
+        "fk_publishers_id": 2,
+        "image": "../ASSETS/CEOS/transferir (1).jpeg"
     },
     {
         "id": 4,
@@ -49,7 +52,8 @@
         "type": "Digital",
         "category": "Racing",
         "fk_developers_id": 3,
-        "fk_publishers_id": 4
+        "fk_publishers_id": 4,
+        "image": "../ASSETS/CEOS/transferir (1).jpeg"
     },
     {
         "id": 5,
@@ -62,7 +66,8 @@
         "type": "Digital",
         "category": "Strategy",
         "fk_developers_id": 4,
-        "fk_publishers_id": 5
+        "fk_publishers_id": 5,
+        "image": "../ASSETS/CEOS/transferir (1).jpeg"
     },
     {
         "id": 6,
@@ -75,6 +80,7 @@
         "type": "Digital",
         "category": "Music",
         "fk_developers_id": 5,
-        "fk_publishers_id": 6
+        "fk_publishers_id": 6,
+        "image": "../ASSETS/CEOS/transferir (1).jpeg"
     }
 ]   

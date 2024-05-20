@@ -20,6 +20,7 @@ class Products {
                 return data.map(product => new Products(
                     product.id,
                     product.name,
+                    product.image,
                     product.description,
                     product.discount,
                     product.price,
@@ -29,7 +30,6 @@ class Products {
                     product.category,
                     product.fk_developers_id,
                     product.fk_suppliers_id,
-                    product.image
                 ));
             })
             .catch(error => {
@@ -48,6 +48,9 @@ class Products {
             const productName = document.createElement('h2');
             productName.textContent = product.name;
 
+            const productImage = document.createElement('img');
+            productImage.src = product.image;
+
             const productDescription = document.createElement('p');
             productDescription.textContent = product.description;
 
@@ -61,11 +64,11 @@ class Products {
             productQuantity.textContent = `Quantity: ${product.quantity}`;
 
             productDiv.appendChild(productName);
+            productDiv.appendChild(productImage);
             productDiv.appendChild(productDescription);
             productDiv.appendChild(productPrice);
             productDiv.appendChild(productDiscount);
             productDiv.appendChild(productQuantity);
-
             productList.appendChild(productDiv);
         });
     }
