@@ -32,55 +32,15 @@
             </ul>
         </nav>
         <li id="ceos">
-            <a href="HTML/ceo.html" ><img src="ASSETS/nav-icons/CEOS.png" alt="CEOS" width="18rem">CEOS</a>
+            <a href="HTML/ceo.html"><img src="ASSETS/nav-icons/CEOS.png" alt="CEOS" width="18rem">CEOS</a>
         </li>
-        </div>
     </header>
     <main>
         <section id="mainContent">
-            <h1>Find your next favorite game!</h1>
+            <h1>Welcome to PowerGuild</h1>
             <div id="productList"></div>
         </section>
     </main>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch('./json/products.json')
-                .then(response => response.json())
-                .then(products => {
-                    const productList = document.getElementById('productList');
-
-                    products.forEach(product => {
-                        const productDiv = document.createElement('div');
-                        productDiv.className = 'product';
-
-                        const productName = document.createElement('h2');
-                        productName.textContent = product.name;
-
-                        const productDescription = document.createElement('p');
-                        productDescription.textContent = product.description;
-
-                        const productPrice = document.createElement('p');
-                        productPrice.textContent = `Price: $${product.price.toFixed(2)}`;
-
-                        const productDiscount = document.createElement('p');
-                        productDiscount.textContent = `Discount: ${product.discount}%`;
-
-                        const productQuantity = document.createElement('p');
-                        productQuantity.textContent = `Quantity: ${product.quantity}`;
-
-                        productDiv.appendChild(productName);
-                        productDiv.appendChild(productDescription);
-                        productDiv.appendChild(productPrice);
-                        productDiv.appendChild(productDiscount);
-                        productDiv.appendChild(productQuantity);
-
-                        productList.appendChild(productDiv);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching the products:', error);
-                });
-        });
-    </script>
+    <script src="./js/products.js"></script>
 </body>
 </html>
