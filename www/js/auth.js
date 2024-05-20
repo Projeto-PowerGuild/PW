@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let users = [];
 
-    // Carregar dados do JSON local (substitua esta parte com a lógica correta para seu ambiente)
+   
     fetch('path/to/your/users.json')
         .then(response => response.json())
         .then(data => {
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function displayUserInfo(user) {
         if (user && user.username && user.email) {
-            // Criação e manipulação dos elementos DOM...
+            
         } else {
             console.error("User data is incomplete:", user);
             displayLoginForm();
