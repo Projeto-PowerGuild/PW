@@ -23,6 +23,51 @@ section{
     color: aliceblue;
 }
 
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.navbar-menu li {
+    margin: 0;
+}
+
+.navbar-menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar-menu li a:hover {
+    background-color: #111;
+}
+
+section {
+    padding: 20px;
+}
+
+.platform {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.platform h2 {
+    margin: 0;
+}
+
 header{
     position: fixed;
     width: 15rem;
@@ -52,6 +97,23 @@ nav{
 #productList{
     display: flex;
     flex-wrap: wrap;
+}
+
+.slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    padding: 20px;
+    text-align: center;
+}
+
+.active-slide {
+    display: block;
 }
 
 .product {
