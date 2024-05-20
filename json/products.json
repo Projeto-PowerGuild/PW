@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1,
+        "name": "Wireless Mouse",
+        "description": "Ergonomic wireless mouse with adjustable DPI",
+        "discount": 10,
+        "price": 25.99,
+        "quantity": 100,
+        "launch_date": "2023-01-15 09:00:00",
+        "Type": "Physical",
+        "category": "Electronics",
+        "fk_developers_id": 1,
+        "fk_suppliers_id": 2
+    },
+    {
+        "id": 2,
+        "name": "E-Book Subscription",
+        "description": "Monthly subscription for unlimited access to e-books",
+        "discount": 5,
+        "price": 9.99,
+        "quantity": 500,
+        "launch_date": "2023-02-01 10:00:00",
+        "Type": "Non-Physical",
+        "category": "Books",
+        "fk_developers_id": 2,
+        "fk_suppliers_id": 3
+    },
+    {
+        "id": 3,
+        "name": "Bluetooth Headphones",
+        "description": "Noise-cancelling over-ear headphones",
+        "discount": 15,
+        "price": 89.99,
+        "quantity": 50,
+        "launch_date": "2023-03-20 12:00:00",
+        "Type": "Physical",
+        "category": "Electronics",
+        "fk_developers_id": 1,
+        "fk_suppliers_id": 2
+    },
+    {
+        "id": 4,
+        "name": "Online Yoga Classes",
+        "description": "Access to live and recorded yoga classes",
+        "discount": 20,
+        "price": 19.99,
+        "quantity": 200,
+        "launch_date": "2023-04-10 08:00:00",
+        "Type": "Non-Physical",
+        "category": "Fitness",
+        "fk_developers_id": 3,
+        "fk_suppliers_id": 4
+    },
+    {
+        "id": 5,
+        "name": "Smart Watch",
+        "description": "Fitness tracker with heart rate monitor",
+        "discount": 25,
+        "price": 129.99,
+        "quantity": 75,
+        "launch_date": "2023-05-05 14:00:00",
+        "Type": "Physical",
+        "category": "Wearables",
+        "fk_developers_id": 4,
+        "fk_suppliers_id": 5
+    },
+    {
+        "id": 6,
+        "name": "Music Streaming Service",
+        "description": "Monthly subscription to premium music streaming",
+        "discount": 10,
+        "price": 12.99,
+        "quantity": 1000,
+        "launch_date": "2023-06-15 16:00:00",
+        "Type": "Non-Physical",
+        "category": "Music",
+        "fk_developers_id": 5,
+        "fk_suppliers_id": 6
+    }
+]

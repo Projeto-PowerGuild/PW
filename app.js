@@ -26,9 +26,9 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-      secure: false, // Set to true if you're using HTTPS
+      secure: false, 
       httpOnly: true,
-      sameSite: 'lax' // Can try 'none' with secure: true if cross-domain
+      sameSite: 'lax' 
   }
 }));
 
