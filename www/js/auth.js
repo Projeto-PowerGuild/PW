@@ -1,24 +1,24 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const profileLink = document.getElementById("profileLink");
 
-    profileLink.addEventListener("click", function(event) {
+    profileLink.addEventListener("click", function (event) {
         event.preventDefault();
         if (checkSession()) {
             displayUserInfo();
         } else {
             displayLoginForm();
         }
-    });   
-    
+    });
+
     function displayUserInfo(user) {
         if (user && user.username && user.email) {
             // Create the CSS link element
             const link = document.createElement('link');
             link.rel = 'stylesheet';
-            link.href = './css/user.css'; 
-    
+            link.href = './css/user.css';
+
             document.head.appendChild(link);
-    
+
             const content = `
         <section>
             <div id="page-top">
@@ -40,18 +40,18 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </section>
         `;
-        document.getElementById("mainContent").innerHTML = content;
+            document.getElementById("mainContent").innerHTML = content;
 
-        // Add event listener to the image to open file dialog
-        document.getElementById("user-photo").addEventListener("click", function() {
-            document.getElementById("profile-picture-input").click();
-        });
+            // Add event listener to the image to open file dialog
+            document.getElementById("user-photo").addEventListener("click", function () {
+                document.getElementById("profile-picture-input").click();
+            });
 
-    
-        // Add event listener to logout button
-        document.getElementById("logout-button").addEventListener("click", function() {
-            logout();
-        });
+
+            // Add event listener to logout button
+            document.getElementById("logout-button").addEventListener("click", function () {
+                logout();
+            });
         } else {
             console.error("User data is incomplete:", user);
             displayLoginForm();
@@ -76,8 +76,8 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 
-    
-    document.addEventListener("DOMContentLoaded", function() {
+
+    document.addEventListener("DOMContentLoaded", function () {
         checkSession();
     });
 
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("mainContent").innerHTML = content;
 
         const loginForm = document.getElementById("loginForm");
-        loginForm.addEventListener("submit", function(event) {
+        loginForm.addEventListener("submit", function (event) {
             event.preventDefault();
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         const signupButton = document.getElementById("signupButton");
-        signupButton.addEventListener("click", function() {
+        signupButton.addEventListener("click", function () {
             displaySignupForm();
         });
     }
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("mainContent").innerHTML = content;
 
         const signupForm = document.getElementById("signupForm");
-        signupForm.addEventListener("submit", function(event) {
+        signupForm.addEventListener("submit", function (event) {
             event.preventDefault();
             const username = document.getElementById("username").value;
             const email = document.getElementById("email").value;
@@ -140,21 +140,21 @@ document.addEventListener("DOMContentLoaded", function() {
             },
             body: JSON.stringify({ email, password })
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                console.log("Login successful");
-                sessionStorage.setItem('isLoggedIn', 'true');
-                checkSession();
-            } else {
-                alert("Login failed: " + data.message);
-            }
-        })
-        .catch(error => {
-            console.error("Error during login:", error);
-        });
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log("Login successful");
+                    sessionStorage.setItem('isLoggedIn', 'true');
+                    checkSession();
+                } else {
+                    alert("Login failed: " + data.message);
+                }
+            })
+            .catch(error => {
+                console.error("Error during login:", error);
+            });
     }
-    
+
     function signup(event) {
         event.preventDefault();
         const username = document.getElementById('username').value;
@@ -167,19 +167,19 @@ document.addEventListener("DOMContentLoaded", function() {
             },
             body: JSON.stringify({ username, email, password })
         })
-        .then(response => {
-            if (response.ok) {
-                console.log("Signup successful");
-                location.reload();
-            } else {
-                throw new Error('Signup failed');
-            }
-        })
-        .catch(error => {
-            console.error("Error during signup:", error);
-        });
+            .then(response => {
+                if (response.ok) {
+                    console.log("Signup successful");
+                    location.reload();
+                } else {
+                    throw new Error('Signup failed');
+                }
+            })
+            .catch(error => {
+                console.error("Error during signup:", error);
+            });
     }
-    
+
     function logout() {
         fetch("/auth/logout")
             .then(response => {
@@ -192,3 +192,5 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error("Error logging out:", error));
     }
 });
+
+

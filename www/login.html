@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="shortcut icon" href="../../ASSETS/logo/favicon.ico" type="image/x-icon">
 
-    <link rel="shortcut icon" href="ASSETS/logo/favicon-ri.ico" type="image/x-icon">
-
-    <link rel="stylesheet" href="CSS/login.css">
+    <link rel="stylesheet" href="../../CSS/login.css">
 </head>
+
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form id="sign-up-form">
+            <form id="sign-up-form" onsubmit="signup(event)">
                 <h1 class="bigTitle">Create Account</h1>
                 <input type="text" id="username" placeholder="Username" required>
                 <input type="email" id="email-signup" placeholder="Email" required>
@@ -22,7 +23,7 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form id="login-form">
+            <form id="login-form" onsubmit="login(event)">
                 <h1 class="bigTitle">Sign in</h1>
                 <input type="email" id="email-login" placeholder="Email">
                 <input type="password" id="password-login" placeholder="Password">
@@ -44,5 +45,20 @@
             </div>
         </div>
     </div>
-    </body>
+    <script src="../../js/auth.js"></script>
+    <script>
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
+
+        signUpButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+
+        signInButton.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });
+    </script>
+</body>
+
 </html>
