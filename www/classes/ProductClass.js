@@ -1,5 +1,5 @@
 class Products {
-    constructor(id, name, description, discount, price, quantity, launchDate, type, category, developersId, suppliersId) {
+    constructor(id, name, description, discount, price, quantity, launchDate, type, category, developersId, suppliersId, image) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -11,6 +11,7 @@ class Products {
         this.category = category;
         this.developersId = developersId;
         this.suppliersId = suppliersId;
+        this.image = image;
     }
 
     static fetchProducts() {
@@ -20,16 +21,16 @@ class Products {
                 return data.map(product => new Products(
                     product.id,
                     product.name,
-                    product.image,
                     product.description,
                     product.discount,
                     product.price,
                     product.quantity,
-                    product.launch_date,
-                    product.Type,
+                    product.release_date,
+                    product.type,
                     product.category,
-                    product.fk_developers_id,
-                    product.fk_suppliers_id,
+                    product.developersId,
+                    product.suppliersId,
+                    product.image
                 ));
             })
             .catch(error => {
@@ -60,15 +61,19 @@ class Products {
             const productDiscount = document.createElement('p');
             productDiscount.textContent = `Discount: ${product.discount}%`;
 
-            const productQuantity = document.createElement('p');
-            productQuantity.textContent = `Quantity: ${product.quantity}`;
+            const productLaunchDate = document.createElement('p');
+            productLaunchDate.textContent = `Launch Date: ${product.launchDate}`;
+
+            const productCategory = document.createElement('p');
+            productCategory.textContent = `Category: ${product.category}`;
 
             productDiv.appendChild(productName);
             productDiv.appendChild(productImage);
             productDiv.appendChild(productDescription);
             productDiv.appendChild(productPrice);
             productDiv.appendChild(productDiscount);
-            productDiv.appendChild(productQuantity);
+            productDiv.appendChild(productLaunchDate);
+            productDiv.appendChild(productCategory);
             productList.appendChild(productDiv);
         });
     }

@@ -6,12 +6,12 @@
         "discount": 10,
         "price": 59.99,
         "quantity": 200,
-        "release_date": "2023-01-15 09:00:00",
+        "release_date": "2023-01-15",
         "type": "Digital",
         "category": "Action-Adventure",
         "fk_developers_id": 1,
         "fk_publishers_id": 2,
-        "image": "../ASSETS/CEOS/transferir (1).jpeg"
+        "image": "../ASSETS/Movies/images.png"
     },
     {
         "id": 2,
@@ -20,12 +20,12 @@
         "discount": 5,
         "price": 69.99,
         "quantity": 500,
-        "release_date": "2023-02-01 10:00:00",
+        "release_date": "2023-02-01",
         "type": "Digital",
         "category": "Shooter",
         "fk_developers_id": 2,
         "fk_publishers_id": 3,
-        "image": "../ASSETS/CEOS/transferir (1).jpeg"
+        "image": "../ASSETS/Movies/images.png"
     },
     {
         "id": 3,
@@ -34,12 +34,12 @@
         "discount": 15,
         "price": 79.99,
         "quantity": 150,
-        "release_date": "2023-03-20 12:00:00",
+        "release_date": "2023-03-20",
         "type": "Digital",
         "category": "RPG",
         "fk_developers_id": 1,
         "fk_publishers_id": 2,
-        "image": "../ASSETS/CEOS/transferir (1).jpeg"
+        "image": "../ASSETS/Movies/images.png"
     },
     {
         "id": 4,
@@ -48,12 +48,12 @@
         "discount": 20,
         "price": 49.99,
         "quantity": 300,
-        "release_date": "2023-04-10 08:00:00",
+        "release_date": "2023-04-10",
         "type": "Digital",
         "category": "Racing",
         "fk_developers_id": 3,
         "fk_publishers_id": 4,
-        "image": "../ASSETS/CEOS/transferir (1).jpeg"
+        "image": "../ASSETS/Movies/images.png"
     },
     {
         "id": 5,
@@ -62,12 +62,12 @@
         "discount": 25,
         "price": 59.99,
         "quantity": 100,
-        "release_date": "2023-05-05 14:00:00",
+        "release_date": "2023-05-05",
         "type": "Digital",
         "category": "Strategy",
         "fk_developers_id": 4,
         "fk_publishers_id": 5,
-        "image": "../ASSETS/CEOS/transferir (1).jpeg"
+        "image": "../ASSETS/Movies/images.png"
     },
     {
         "id": 6,
@@ -76,11 +76,11 @@
         "discount": 10,
         "price": 39.99,
         "quantity": 1000,
-        "release_date": "2023-06-15 16:00:00",
+        "release_date": "2023-06-15",
         "type": "Digital",
         "category": "Music",
         "fk_developers_id": 5,
         "fk_publishers_id": 6,
-        "image": "../ASSETS/CEOS/transferir (1).jpeg"
+        "image": "../ASSETS/Movies/images.png"
     }
 ]   
