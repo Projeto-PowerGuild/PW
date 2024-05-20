@@ -47,9 +47,6 @@ class Products {
 
             const productName = document.createElement('h2');
             productName.textContent = product.name;
-            
-            const productImage = document.createElement('img')
-            productImage.textContent = product.image
 
             const productDescription = document.createElement('p');
             productDescription.textContent = product.description;

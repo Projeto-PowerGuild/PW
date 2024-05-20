@@ -3,6 +3,21 @@ main{
     margin-left: 19rem;
 }
 
+#titlePage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+#SubMsgPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f8bb21;
+    margin: 10px;
+}
+
 section{
     padding: 2rem;
     color: aliceblue;
