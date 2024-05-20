@@ -10,7 +10,8 @@
         "type": "Digital",
         "category": "Action-Adventure",
         "fk_developers_id": 1,
-        "fk_publishers_id": 2
+        "fk_publishers_id": 2,
+        "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FShadow_of_the_Colossus&psig=AOvVaw0yhg5CClj03oSxGp54nlgv&ust=1716305351927000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNiEx-jFnIYDFQAAAAAdAAAAABAE"
     },
     {
         "id": 2,
@@ -23,7 +24,8 @@
         "type": "Digital",
         "category": "Shooter",
         "fk_developers_id": 2,
-        "fk_publishers_id": 3
+        "fk_publishers_id": 3,
+        "image_url": "https://example.com/galactic_warfare_banner.jpg"
     },
     {
         "id": 3,
