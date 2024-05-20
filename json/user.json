@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "pwd": "password123",
+        "fk_wishlist_id": 1
+    },
+    {
+        "id": 2,
+        "name": "Jane Smith",
+        "email": "jane.smith@example.com",
+        "pwd": "securepwd456",
+        "fk_wishlist_id": 2
+    },
+    {
+        "id": 3,
+        "name": "Alice Johnson",
+        "email": "alice.johnson@example.com",
+        "pwd": "mypassword789",
+        "fk_wishlist_id": 3
+    },
+    {
+        "id": 4,
+        "name": "Bob Brown",
+        "email": "bob.brown@example.com",
+        "pwd": "password321",
+        "fk_wishlist_id": 4
+    },
+    {
+        "id": 5,
+        "name": "Charlie Davis",
+        "email": "charlie.davis@example.com",
+        "pwd": "securepwd654",
+        "fk_wishlist_id": 5
+    },
+    {
+        "id": 6,
+        "name": "Diana Evans",
+        "email": "diana.evans@example.com",
+        "pwd": "mypassword987",
+        "fk_wishlist_id": 6
+    }
+]
