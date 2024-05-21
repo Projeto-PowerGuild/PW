@@ -75,23 +75,77 @@ header{
     background-color: var(--primary);
     border-bottom: 1px solid var(--nav-text);
     display: flex;
-    flex-direction: row;
+    gap: 1rem;
     align-items: center;
+    justify-content: space-between;
 }
 
 #logo{
     width: 100%;
 }
 
-nav{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    overflow-y: scroll;
-    display: flex;
-    gap: .8rem;
-    flex-direction: column;
+#search-bar{
+    width: 38rem;
+    padding: .2rem 1rem;
+    color: #fff;
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--nav-text);
+    outline: none;
 }
+
+nav{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.menu-settings{
+    position: relative;
+}
+
+nav h3{
+    color: var(--nav-text);
+}
+
+nav h3:hover + ul{
+    display: flex;
+}
+
+ul:hover{
+    display: flex;
+}
+
+ul{
+    position: absolute;
+    width: 8rem;
+    display: none;
+    flex-direction: column;
+    background-color: var(--primary);
+}
+
+ul li{
+    list-style: none;
+    font-size: 1.1rem;
+    padding: .3rem 0rem;
+}
+
+ul li a{
+    color: var(--nav-text);
+    text-decoration: none;
+}
+
+ul li:hover{
+    background-color: #343434;
+}
+
+ul li a:hover{
+    color: var(--secondary);
+}
+
 
 #productList{
     display: flex;
@@ -143,67 +197,13 @@ nav{
     justify-content: space-around;
 }
 
-nav::-webkit-scrollbar{
-    width: 10px;
-}
-
-nav::-webkit-scrollbar-thumb{
-    background-color: transparent;
-    border-radius: 25px;
-}
-  
-nav::-webkit-scrollbar-track{
-    background-color: var(--primary);
-}
-  
-
-nav h3{
-    position: relative;
-    color: var(--white);
-    margin: 2rem 0rem 1.5rem 0rem;
-}
-
-nav h3::after{
-    content:'';
-    position: absolute;
-    top: 120%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--white);
-}
-
-ul{
-    display: flex;
-    gap: 1.2rem;
-    flex-direction: column;
-}
-
-ul li{
-    list-style: none;
-    font-size: 1.1rem;
-    margin: 0rem;
-}
-
-ul li a{
-    color: var(--nav-text);
-    text-decoration: none;
-    display: flex;
-    gap: .8rem;
-    align-items: center;
-}
-
-ul li a:hover{
-    color: var(--secondary);
-}
-
-#ceos{
+#profile{
     list-style: none;
     font-size: 1.1rem;
     margin: 1rem 0rem;
 }
 
-#ceos a{
+#profile a{
     color: var(--nav-text);
     text-decoration: none;
     display: flex;
@@ -211,7 +211,7 @@ ul li a:hover{
     align-items: center;
 }
 
-#ceos a:hover{
+#profile a:hover{
     color: var(--secondary);
 }
 
