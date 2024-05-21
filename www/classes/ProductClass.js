@@ -1,36 +1,29 @@
 class Products {
-    constructor(id, name, description, discount, price, quantity, launchDate, type, category, developersId, suppliersId, image) {
+    constructor(id, name, description, price, releaseDate, genre, image) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.discount = discount;
-        this.price = price;
-        this.quantity = quantity;
-        this.launchDate = launchDate;
-        this.type = type;
-        this.category = category;
-        this.developersId = developersId;
-        this.suppliersId = suppliersId;
+        this.price = price; // Randomly generated for demonstration purposes
+        this.releaseDate = releaseDate;
+        this.genre = genre;
         this.image = image;
     }
 
     static fetchProducts() {
-        return fetch('../json/products.json')
+        const rawgUrl = 'https://api.rawg.io/api/games';
+        const apiKey = 'af44d7146ee947279a58c62db9ff347e';
+
+        return fetch(`${rawgUrl}?key=${apiKey}&page_size=10`)
             .then(response => response.json())
             .then(data => {
-                return data.map(product => new Products(
-                    product.id,
-                    product.name,
-                    product.description,
-                    product.discount,
-                    product.price,
-                    product.quantity,
-                    product.release_date,
-                    product.type,
-                    product.category,
-                    product.developersId,
-                    product.suppliersId,
-                    product.image
+                return data.results.map(game => new Products(
+                    game.id,
+                    game.name,
+                    game.description || 'No description available',
+                    Math.floor(Math.random() * 60) + 20,
+                    game.released,
+                    game.genres.map(genre => genre.name).join(', '),
+                    game.background_image || 'ASSETS/placeholder-image.png'
                 ));
             })
             .catch(error => {
@@ -58,22 +51,18 @@ class Products {
             const productPrice = document.createElement('p');
             productPrice.textContent = `Price: $${product.price.toFixed(2)}`;
 
-            const productDiscount = document.createElement('p');
-            productDiscount.textContent = `Discount: ${product.discount}%`;
-
             const productLaunchDate = document.createElement('p');
-            productLaunchDate.textContent = `Launch Date: ${product.launchDate}`;
+            productLaunchDate.textContent = `Launch Date: ${product.releaseDate}`;
 
-            const productCategory = document.createElement('p');
-            productCategory.textContent = `Category: ${product.category}`;
+            const productGenre = document.createElement('p');
+            productGenre.textContent = `Genre: ${product.genre}`;
 
             productDiv.appendChild(productName);
             productDiv.appendChild(productImage);
             productDiv.appendChild(productDescription);
             productDiv.appendChild(productPrice);
-            productDiv.appendChild(productDiscount);
             productDiv.appendChild(productLaunchDate);
-            productDiv.appendChild(productCategory);
+            productDiv.appendChild(productGenre);
             productList.appendChild(productDiv);
         });
     }

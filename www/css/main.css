@@ -1,6 +1,5 @@
 main{
-    width: calc(100% - 19rem);
-    margin-left: 19rem;
+    padding-top: 6rem;
 }
 
 #titlePage{
@@ -70,13 +69,13 @@ section {
 
 header{
     position: fixed;
-    width: 15rem;
-    height: calc(100% - 4rem);
+    width: calc(100% - 4rem);
+    height: 2rem;
     padding: 2rem;
     background-color: var(--primary);
-    border-right: 1px solid var(--nav-text);
+    border-bottom: 1px solid var(--nav-text);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
