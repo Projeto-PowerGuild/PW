@@ -77,7 +77,6 @@ class Products {
             const products = await Promise.all(data.results.map(async game => {
                 let description = await Products.fetchProductDetails(game.id);
                 
-                // Ensure the description is in English and limit the length
                 description = description.split('\n').find(line => /^[a-zA-Z0-9]/.test(line)) || 'No description available';
                 description = Products.truncateText(description, 200);
 

@@ -53,7 +53,7 @@ app.get('/api/products', async (req, res) => {
   const apiKey = 'af44d7146ee947279a58c62db9ff347e';
 
   try {
-    const response = await fetch(`${rawgUrl}?key=${apiKey}&page_size=10`);
+    const response = await fetch(`${rawgUrl}?key=${apiKey}&page_size=12`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
