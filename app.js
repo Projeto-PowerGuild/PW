@@ -29,21 +29,23 @@ app.use(session({
   }
 }));
 
-// Proxy route to fetch trending game
-app.get('/api/trending', async (req, res) => {
-  const rawgUrl = 'https://api.rawg.io/api/games/lists/popular';
-  const apiKey = 'af44d7146ee947279a58c62db9ff347e';
+const trendingGame = {
+  id: 58720,
+  name: "Ghost of Tsushima",
+  description: "A beautiful open-world action-adventure game set in feudal Japan.",
+  price: 59.99,
+  discount: 20,
+  releaseDate: "2020-07-17",
+  genre: "Action, Adventure",
+  image: "https://media.rawg.io/media/resize/1280/-/games/193/193c9fe23ca026914fdf41d551ff3df9.jpg"
+};
 
+app.get('/api/trending', async (req, res) => {
   try {
-    const response = await fetch(`${rawgUrl}?key=${apiKey}&page_size=1`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    const data = await response.json();
-    res.json(data);
+      res.json(trendingGame);
   } catch (error) {
-    console.error('Error fetching the trending game:', error.message, error.stack);
-    res.status(500).send('Internal Server Error');
+      console.error('Error fetching the trending game:', error.message, error.stack);
+      res.status(502).send('Bad Gateway');
   }
 });
 
@@ -65,9 +67,6 @@ app.get('/api/products', async (req, res) => {
   }
 });
 
-// Add this endpoint to your Express server
-
-// Proxy route to fetch product details
 app.get('/api/products/:id', async (req, res) => {
   const { id } = req.params;
   const rawgUrl = `https://api.rawg.io/api/games/${id}`;
@@ -85,7 +84,6 @@ app.get('/api/products/:id', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

@@ -16,18 +16,16 @@ class Products {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
-            const data = await response.json();
-            const game = data.results[0];
-
+            const game = await response.json();
             return new Products(
                 game.id,
                 game.name,
-                'No description available',
-                Math.floor(Math.random() * 60) + 20,
-                Math.floor(Math.random() * 50),
-                game.released,
-                game.genres.map(genre => genre.name).join(', '),
-                game.background_image || 'ASSETS/placeholder-image.png'
+                game.description,
+                game.price,
+                game.discount,
+                game.releaseDate,
+                game.genre,
+                game.image
             );
         } catch (error) {
             console.error('Error fetching the trending game:', error.message, error.stack);
@@ -40,8 +38,9 @@ class Products {
         if (trendingGame) {
             document.getElementById('trendingGameImage').src = trendingGame.image;
             document.getElementById('trendingGameTitle').textContent = trendingGame.name;
-            document.getElementById('trendingGamePrice').textContent = `Price: €${trendingGame.price.toFixed(2)}`;
+            document.getElementById('trendingGamePrice').textContent = `Price: $${trendingGame.price.toFixed(2)}`;
             document.getElementById('trendingGameDiscount').textContent = `${trendingGame.discount}% off`;
+            document.getElementById('trendingGameDescription').textContent = trendingGame.description;
         }
     }
 
@@ -88,7 +87,7 @@ class Products {
                     Math.floor(Math.random() * 50),
                     game.released,
                     game.genres.map(genre => genre.name).join(', '),
-                    game.background_image || 'ASSETS/placeholder-image.png'
+                    game.background_image || 'ASSETS/Movies/images.png'
                 );
             }));
 

@@ -1,5 +1,5 @@
 main{
-    padding-top: 6rem;
+    padding-top: 6rem;  
 }
 
 #titlePage{
@@ -7,6 +7,29 @@ main{
     justify-content: center;
     align-items: center;
     font-size: 2rem;
+}
+
+#trendingGame{
+    border: #ccc 1px solid;
+    border-radius: 2px;
+}
+
+#trendingGameTitle{
+    padding: 1rem;
+    font-size: 50px;
+}
+
+#trendingGameButton{
+    padding: 1rem 2rem 1rem 2rem;
+    border-radius: 20px;
+    background-color: #1f1f1f;
+    border: #ccc 1px solid;
+    color: var(--secondary);
+}
+
+#trendingGameButton:hover {
+    background-color: #f8bb21;
+    color: #fff;
 }
 
 #SubMsgPage {
@@ -77,6 +100,7 @@ header{
     gap: 1rem;
     align-items: center;
     justify-content: space-between;
+    z-index: 1;
 }
 
 #logo{
