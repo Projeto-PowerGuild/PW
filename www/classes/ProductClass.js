@@ -1,35 +1,103 @@
 class Products {
-    constructor(id, name, description, price, releaseDate, genre, image) {
+    constructor(id, name, description, price, discount, releaseDate, genre, image) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.price = price; // Randomly generated for demonstration purposes
+        this.price = price;
+        this.discount = discount;
         this.releaseDate = releaseDate;
         this.genre = genre;
         this.image = image;
     }
 
-    static fetchProducts() {
-        const rawgUrl = 'https://api.rawg.io/api/games';
-        const apiKey = 'af44d7146ee947279a58c62db9ff347e';
+    static async fetchTrendingGame() {
+        try {
+            const response = await fetch('/api/trending');
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const data = await response.json();
+            const game = data.results[0];
 
-        return fetch(`${rawgUrl}?key=${apiKey}&page_size=10`)
-            .then(response => response.json())
-            .then(data => {
-                return data.results.map(game => new Products(
+            return new Products(
+                game.id,
+                game.name,
+                'No description available',
+                Math.floor(Math.random() * 60) + 20,
+                Math.floor(Math.random() * 50),
+                game.released,
+                game.genres.map(genre => genre.name).join(', '),
+                game.background_image || 'ASSETS/placeholder-image.png'
+            );
+        } catch (error) {
+            console.error('Error fetching the trending game:', error.message, error.stack);
+            return null;
+        }
+    }
+
+    static async displayTrendingGame() {
+        const trendingGame = await Products.fetchTrendingGame();
+        if (trendingGame) {
+            document.getElementById('trendingGameImage').src = trendingGame.image;
+            document.getElementById('trendingGameTitle').textContent = trendingGame.name;
+            document.getElementById('trendingGamePrice').textContent = `Price: €${trendingGame.price.toFixed(2)}`;
+            document.getElementById('trendingGameDiscount').textContent = `${trendingGame.discount}% off`;
+        }
+    }
+
+    static async fetchProductDetails(productId) {
+        try {
+            const response = await fetch(`/api/products/${productId}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const data = await response.json();
+            return data.description || 'No description available';
+        } catch (error) {
+            console.error(`Error fetching details for product ${productId}:`, error.message, error.stack);
+            return null;
+        }
+    }
+
+    static truncateText(text, maxLength) {
+        if (text.length <= maxLength) {
+            return text;
+        }
+        return text.substring(0, maxLength) + '...';
+    }
+
+    static async fetchProducts() {
+        try {
+            const response = await fetch('/api/products');
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const data = await response.json();
+
+            const products = await Promise.all(data.results.map(async game => {
+                let description = await Products.fetchProductDetails(game.id);
+                
+                // Ensure the description is in English and limit the length
+                description = description.split('\n').find(line => /^[a-zA-Z0-9]/.test(line)) || 'No description available';
+                description = Products.truncateText(description, 200);
+
+                return new Products(
                     game.id,
                     game.name,
-                    game.description || 'No description available',
+                    description,
                     Math.floor(Math.random() * 60) + 20,
+                    Math.floor(Math.random() * 50),
                     game.released,
                     game.genres.map(genre => genre.name).join(', '),
                     game.background_image || 'ASSETS/placeholder-image.png'
-                ));
-            })
-            .catch(error => {
-                console.error('Error fetching the products:', error);
-                return [];
-            });
+                );
+            }));
+
+            return products;
+        } catch (error) {
+            console.error('Error fetching the products:', error.message, error.stack);
+            return [];
+        }
     }
 
     static displayProducts(products) {
@@ -51,6 +119,9 @@ class Products {
             const productPrice = document.createElement('p');
             productPrice.textContent = `Price: $${product.price.toFixed(2)}`;
 
+            const productDiscount = document.createElement('p');
+            productDiscount.textContent = `Discount: ${product.discount}%`;
+
             const productLaunchDate = document.createElement('p');
             productLaunchDate.textContent = `Launch Date: ${product.releaseDate}`;
 
@@ -61,6 +132,7 @@ class Products {
             productDiv.appendChild(productImage);
             productDiv.appendChild(productDescription);
             productDiv.appendChild(productPrice);
+            productDiv.appendChild(productDiscount);
             productDiv.appendChild(productLaunchDate);
             productDiv.appendChild(productGenre);
             productList.appendChild(productDiv);
@@ -69,6 +141,7 @@ class Products {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    Products.displayTrendingGame();
     Products.fetchProducts().then(products => {
         Products.displayProducts(products);
     });
