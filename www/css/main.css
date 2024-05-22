@@ -152,12 +152,15 @@ ul{
 
 ul li{
     list-style: none;
-    font-size: 1.1rem;
-    padding: .3rem 0rem;
+    display: flex;
 }
 
 ul li a{
+    width: 100%;
+    height: 100%;
+    padding: .3rem 0rem;
     color: var(--nav-text);
+    font-size: 1.1rem;
     text-decoration: none;
 }
 
