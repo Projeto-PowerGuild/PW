@@ -105,6 +105,10 @@ class Products {
             const productDiv = document.createElement('div');
             productDiv.className = 'product';
 
+            productDiv.addEventListener('click', () => {
+                window.location.href = `www/html/gamesPage.html?id=${product.id}`;
+            });
+
             const productName = document.createElement('h2');
             productName.textContent = product.name;
 
