@@ -8,6 +8,24 @@
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/root.css">
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+      
+        const firebaseConfig = {
+          apiKey: "AIzaSyArlz9oe8Hy79b43MANnxucljif78y8fcY",
+          authDomain: "infocars-31fff.firebaseapp.com",
+          projectId: "infocars-31fff",
+          storageBucket: "infocars-31fff.appspot.com",
+          messagingSenderId: "940285169353",
+          appId: "1:940285169353:web:305feefc94f90c82550718",
+          measurementId: "G-HD8RBYG6JP"
+        };
+      
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
 </head>
 <body>
     <header>
