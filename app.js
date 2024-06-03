@@ -13,7 +13,7 @@ const app = express();
 const sessionStore = new MySQLStore(options);
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'www')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(session({

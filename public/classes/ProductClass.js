@@ -106,7 +106,7 @@ class Products {
             productDiv.className = 'product';
 
             productDiv.addEventListener('click', () => {
-                window.location.href = `www/html/gamesPage.html?id=${product.id}`;
+                window.location.href = `public/html/gamesPage.html?id=${product.id}`;
             });
 
             const productName = document.createElement('h2');
