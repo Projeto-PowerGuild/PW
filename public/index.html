@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="login.html">
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -25,6 +26,12 @@
     
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
+
+        firebase.auth().onAuthStateChanged(user => {
+            if (!user) {
+                window.location.href = '/login.html';
+            }
+        });
     </script>
 </head>
 <body>
@@ -74,7 +81,7 @@
             <div id="productList"></div>
         </section>
     </main>
-    
+
     <script src="classes/ProductClass.js"></script>
 </body>
 </html>
