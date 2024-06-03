@@ -49,7 +49,6 @@ app.get('/api/trending', async (req, res) => {
   }
 });
 
-// Proxy route to fetch products
 app.get('/api/products', async (req, res) => {
   const rawgUrl = 'https://api.rawg.io/api/games';
   const apiKey = 'af44d7146ee947279a58c62db9ff347e';
