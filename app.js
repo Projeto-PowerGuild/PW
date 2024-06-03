@@ -100,6 +100,7 @@ app.get('/api/shop', async (req, res) => {
     console.error('Error fetching products:', error.message, error.stack);
     res.status(500).send('Internal Server Error');
   }
+
 });
 
 const PORT = process.env.PORT || 3000;
