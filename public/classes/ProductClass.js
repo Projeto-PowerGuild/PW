@@ -12,7 +12,7 @@ class Products {
 
     static async fetchTrendingGame() {
         try {
-            const response = await fetch('/api/trending');
+            const response = await fetch('https://powerguild.web.app/api/trending'); 
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -46,7 +46,7 @@ class Products {
 
     static async fetchProductDetails(productId) {
         try {
-            const response = await fetch(`/api/products/${productId}`);
+            const response = await fetch(`https://powerguild.web.app/api/products/${productId}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -67,7 +67,7 @@ class Products {
 
     static async fetchProducts() {
         try {
-            const response = await fetch('/api/products');
+            const response = await fetch('https://powerguild.web.app/api/products');
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }

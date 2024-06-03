@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const MySQLStore = require('express-mysql-session')(session);
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const options = require("./config/settings.json").database;
+const cors = require('cors');
 
 const app = express();
 
@@ -29,6 +30,12 @@ app.use(session({
   }
 }));
 
+app.use(cors({
+  origin: 'https://powerguild.web.app', // Allow only this origin
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true // Allow cookies
+}));
+
 const trendingGame = {
   id: 58720,
   name: "Ghost of Tsushima",
@@ -43,6 +50,7 @@ const trendingGame = {
 app.get('/api/trending', async (req, res) => {
   try {
       res.json(trendingGame);
+      console.log("SHITS NOT WORKING TRENDING")
   } catch (error) {
       console.error('Error fetching the trending game:', error.message, error.stack);
       res.status(502).send('Bad Gateway');
@@ -52,13 +60,13 @@ app.get('/api/trending', async (req, res) => {
 app.get('/api/products', async (req, res) => {
   const rawgUrl = 'https://api.rawg.io/api/games';
   const apiKey = 'af44d7146ee947279a58c62db9ff347e';
-
   try {
     const response = await fetch(`${rawgUrl}?key=${apiKey}&page_size=12`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const data = await response.json();
+    console.log("SHITS NOT WORKING")
     res.json(data);
   } catch (error) {
     console.error('Error fetching products:', error.message, error.stack);
