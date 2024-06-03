@@ -9,17 +9,34 @@ main{
     font-size: 2rem;
 }
 
+#trendingGameSection{
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+
 #trendingGame{
+    padding: 1rem;
     border: #ccc 1px solid;
     border-radius: 2px;
 }
 
+#trendingGame div{
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .65rem;
+    align-items: center;
+    justify-content: center;
+}
+
 #trendingGameTitle{
-    padding: 1rem;
+    padding-bottom: 1rem;
     font-size: 50px;
 }
 
 #trendingGameButton{
+    width: 8rem;
     padding: 1rem 2rem 1rem 2rem;
     border-radius: 20px;
     background-color: #1f1f1f;
