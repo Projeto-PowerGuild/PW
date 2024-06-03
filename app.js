@@ -7,7 +7,6 @@ const bodyParser = require('body-parser');
 const MySQLStore = require('express-mysql-session')(session);
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const options = require("./config/settings.json").database;
-const cors = require('cors');
 
 const app = express();
 
@@ -28,12 +27,6 @@ app.use(session({
       httpOnly: true,
       sameSite: 'lax'
   }
-}));
-
-app.use(cors({
-  origin: 'https://powerguild.web.app', // Allow only this origin
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true // Allow cookies
 }));
 
 const trendingGame = {
