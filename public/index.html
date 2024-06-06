@@ -63,25 +63,31 @@
             <li id="profile"><a href="html/Menu/profile.html"><img src="ASSETS/nav-icons/user.png" alt="Account" width="18rem">Login</a></li>
         </nav>
     </header>
-    <main>
         <!-- Trending Game Section -->
         <section id="trendingGameSection">
             <div id="trendingGame">
-                <h1 id="trendingGameTitle"></h1>
-                <img id="trendingGameImage" alt="Trending Game Image">
-                <div>
-                    <p id="trendingGamePrice"></p>
-                    <p id="trendingGameDiscount"></p>
-                    <p id="trendingGameDescription"></p>
-                    <button id="trendingGameButton">Buy Now</button>
+                <div id="trendingGameImage">
+                    <h1 id="trendingGameTitle"></h1>
+                    <div id="trendingGameInfo">
+                        <div>
+                            <p id="trendingGamePrice"></p>
+                            <span>/</span>
+                            <p id="trendingGameDiscount"></p>
+                        </div>
+                        <p id="trendingGameDescription"></p>
+                        <button id="trendingGameButton"><b>Buy Now</b></button>
+                    </div>
                 </div>
+                <!-- <img id="trendingGameImage" alt="Trending Game Image"> -->
             </div>
+            <a href="#mainContent">
+                <img src="ASSETS/nav-icons/arrow.png" alt="Arrow" width="50rem">
+            </a>
         </section>
         <section id="mainContent">
             <h1 id="titlePage">Start shopping now!💛</h1>
             <div id="productList"></div>
         </section>
-    </main>
 
     <script src="classes/ProductClass.js"></script>
 </body>
