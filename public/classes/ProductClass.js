@@ -36,11 +36,12 @@ class Products {
     static async displayTrendingGame() {
         const trendingGame = await Products.fetchTrendingGame();
         if (trendingGame) {
-            document.getElementById('trendingGameImage').src = trendingGame.image;
+            // document.getElementById('trendingGameImage').src = trendingGame.image;
+            document.getElementById('trendingGameImage').style.backgroundImage = 'url(' + trendingGame.image + ')';
             document.getElementById('trendingGameTitle').textContent = trendingGame.name;
-            document.getElementById('trendingGamePrice').textContent = `Price: $${trendingGame.price.toFixed(2)}`;
-            document.getElementById('trendingGameDiscount').textContent = `${trendingGame.discount}% off`;
-            document.getElementById('trendingGameDescription').textContent = trendingGame.description;
+            document.getElementById('trendingGamePrice').textContent = `$${trendingGame.price.toFixed(2)}`;
+            document.getElementById('trendingGameDiscount').textContent = `${trendingGame.discount}% Off`;
+            // document.getElementById('trendingGameDescription').textContent = trendingGame.description;
         }
     }
 
@@ -112,30 +113,41 @@ class Products {
             const productName = document.createElement('h2');
             productName.textContent = product.name;
 
-            const productImage = document.createElement('img');
-            productImage.src = product.image;
+            const productImage = document.createElement('div');
+            productImage.className = 'productImg';
+            productImage.style.background = `url(${product.image}) center/cover no-repeat`;
 
-            const productDescription = document.createElement('p');
-            productDescription.textContent = product.description;
+            // const productDescription = document.createElement('p');
+            // productDescription.textContent = product.description;
 
             const productPrice = document.createElement('p');
-            productPrice.textContent = `Price: $${product.price.toFixed(2)}`;
+            productPrice.textContent = `Price: $${product.price.toFixed(2)} `;
 
+            const priceDiscountSpan = document.createElement('span');
+            priceDiscountSpan.textContent = '/';
+            priceDiscountSpan.className = 'price-discount-span';
+            
             const productDiscount = document.createElement('p');
-            productDiscount.textContent = `Discount: ${product.discount}%`;
+            productDiscount.textContent = `${product.discount}% Off`;
+            productDiscount.className = 'product-discount'
 
-            const productLaunchDate = document.createElement('p');
-            productLaunchDate.textContent = `Launch Date: ${product.releaseDate}`;
+            const priceDiscount = document.createElement('div');
+            priceDiscount.className = 'price-discount';
+            priceDiscount.appendChild(productPrice);
+            priceDiscount.appendChild(priceDiscountSpan);
+            priceDiscount.appendChild(productDiscount);
+
+            // const productLaunchDate = document.createElement('p');
+            // productLaunchDate.textContent = `Launch Date: ${product.releaseDate}`;
 
             const productGenre = document.createElement('p');
-            productGenre.textContent = `Genre: ${product.genre}`;
+            productGenre.textContent = `${product.genre}`;
 
-            productDiv.appendChild(productName);
+            productImage.appendChild(productName);
             productDiv.appendChild(productImage);
-            productDiv.appendChild(productDescription);
-            productDiv.appendChild(productPrice);
-            productDiv.appendChild(productDiscount);
-            productDiv.appendChild(productLaunchDate);
+            productDiv.appendChild(priceDiscount);
+            // productDiv.appendChild(productDescription);
+            // productDiv.appendChild(productLaunchDate);
             productDiv.appendChild(productGenre);
             productList.appendChild(productDiv);
         });
