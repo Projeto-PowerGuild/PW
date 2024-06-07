@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-
+<htm
     <!-- Style -->
     <link rel="stylesheet" href="../../CSS/root.css">
     <link rel="stylesheet" href="../../CSS/nav.css">
-    <link rel="shortcut icon" href="../../ASSETS/logo/favicon.ico" type="image/x-icon">
+    <l lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link rel="shortcut icon" href="../../ASSETS/logo/favicon-ri.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../CSS/main.css">
     <link rel="stylesheet" href="../../CSS/load.css">
     <link rel="stylesheet" href="../../CSS/user.css">
@@ -42,24 +43,27 @@
 <body>
 
     <header>
-        <a href="../../index.html"><img src="../../ASSETS/logo/image_2024-05-21_092537628-removebg-preview.png" alt="Logo" id="logo" draggable="false"></a>
+        <a href="../../index.html"><img src="../../ASSETS/logo/image_2023-11-21_145906080-removebg-preview.png" alt="Logo" id="logo" draggable="false"></a>
         <!-- Nav bar Menu -->
         <nav>
             <!-- Menu Section -->
             <h3>Menu</h3>
             <ul>
                 <li><a href="../../index.html"><img src="../../ASSETS/nav-icons/home.png" alt="Home" width="18rem">Home</a></li>
-                <li><a href="../Menu/shop.html"><img src="../../ASSETS/nav-icons/shop-cart (1).png" alt="Movies" width="18rem">Shop</a></li>
-                <li><a href="../Menu/community.html    "><img src="../../ASSETS/nav-icons/community (1).png" alt="Series" width="18rem">Community</a></li>
-                <li><a href="../Menu/profile.html"><img src="../../ASSETS/nav-icons/user.png" alt="Home" width="18rem">Profile</a></li>
+                <li><a href="../Menu/movies.html"><img src="../../ASSETS/nav-icons/movies.png" alt="Movies" width="18rem">Movies</a></li>
+                <li><a href="../Menu/series.html    "><img src="../../ASSETS/nav-icons/series.png" alt="Series" width="18rem">Series</a></li>
+                <li><a href="latest.html"><img src="../../ASSETS/nav-icons/recent.png" alt="Home" width="18rem">Latest releases</a></li>
+                <!--<li><a href="HTML/Menu/list.html"><img src="ASSETS/nav-icons/list.png" alt="My list" width="18rem">My list</a></li>-->
             </ul>
             <!-- Settings Section  -->
             <h3>Settings</h3>
             <ul>
+                <li><a href="../Settings/sub.html"><img src="../../ASSETS/nav-icons/subscription.png" alt="Subscription" width="18rem">Subscription</a></li>
                 <li><a href="../Settings/faq.html"><img src="../../ASSETS/nav-icons/faq.png" alt="FAQ" width="18rem">FAQ</a></li>
                 <li><a href="../Settings/terms.html"><img src="../../ASSETS/nav-icons/terms.png" alt="Terms" width="18rem">Terms of Use</a></li>
                 <li><a href="../Settings/privacy.html"><img src="../../ASSETS/nav-icons/privacy.png" alt="Privacy" width="18rem">Privacy</a></li>
                 <li><a href="../Settings/contact.html"><img src="../../ASSETS/nav-icons/contact.png" alt="Contact us" width="18rem">Contact us</a></li>
+                <li><a href="user.html"><img src="../../ASSETS/nav-icons/user.png" alt="Account" width="18rem">Account</a></li>
             </ul>
         </nav>
         <li id="ceos">
@@ -75,15 +79,18 @@
                     <li><a href="../../index.html"><img src="../../ASSETS/nav-icons/home.png" alt="Home" width="18rem">Home</a></li>
                     <li><a href="movies.html"><img src="../../ASSETS/nav-icons/movies.png" alt="Movies" width="18rem">Movies</a></li>
                     <li><a href="series.html"><img src="../../ASSETS/nav-icons/series.png" alt="Series" width="18rem">Series</a></li>
-                    <li><a href="#"><img src="../../ASSETS/nav-icons/.png" alt="Latest releases" width="18rem">Latest releases</a></li>
+                    <li><a href="#"><img src="../../ASSETS/nav-icons/recent.png" alt="Latest releases" width="18rem">Latest releases</a></li>
+                    <!--<li><a href="HTML/Menu/list.html"><img src="ASSETS/nav-icons/list.png" alt="My list" width="18rem">My list</a></li>-->
                 </ul>
                 <!-- Settings Section -->
                 <h3>Settings</h3>
                 <ul>
+                    <li><a href="../Settings/sub.html"><img src="../../ASSETS/nav-icons/subscription.png" alt="Subscription" width="18rem">Subscription</a></li>
                     <li><a href="../Settings/faq.html"><img src="../../ASSETS/nav-icons/faq.png" alt="FAQ" width="18rem">FAQ</a></li>
                     <li><a href="../Settings/terms.html"><img src="../../ASSETS/nav-icons/terms.png" alt="Terms of Use" width="18rem">Terms of Use</a></li>
                     <li><a href="../Settings/privacy.html"><img src="../../ASSETS/nav-icons/privacy.png" alt="Privacy" width="18rem">Privacy</a></li>
                     <li><a href="../Settings/contact.html"><img src="../../ASSETS/nav-icons/contact.png" alt="Contact us" width="18rem">Contact us</a></li>
+                    <li><a href="user.html"><img src="../../ASSETS/nav-icons/user.png" alt="Account" width="18rem">Account</a></li>
                 </ul>
             </nav>
             <li id="ceos">
@@ -110,10 +117,59 @@
                     <button id="logout-button">Logout</button>
                 </div>
             </div>
-            <span id="line"></span>
         </section>
     </main>
+
+    <!-- Script -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+        import { getDoc, doc } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"; // Assuming you're using Firestore
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBH42VD0gk48KLx74gWNU9u-Kz9z751q8A",
+            authDomain: "tvbe-24768.firebaseapp.com",
+            projectId: "tvbe-24768",
+            storageBucket: "tvbe-24768.appspot.com",
+            messagingSenderId: "459135185545",
+            appId: "1:459135185545:web:30a8f0aa37f56902824c58",
+            measurementId: "G-MK82D5BEGM"
+        };  
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+            const userRef = doc(db, "users", user.uid);
+            getDoc(userRef).then((docSnap) => {
+                if (docSnap.exists()) {
+                    const userData = docSnap.data();
+                    document.getElementById('user-nick').textContent += userData.username;
+                    document.getElementById('user-email').textContent = user.email;
+                }
+                }).catch((error) => {
+                    console.log("Error getting document:", error);
+                });
+            } else {
+                window.location.href = '/login.html';
+            }
+        });
+
+        document.getElementById('logout-button').addEventListener('click', () => {
+            auth.signOut().then(() => {
+                console.log("User signed out successfully");
+                window.location.href = '/login.html';
+            }).catch((error) => {
+                console.error("Error signing out: ", error);
+            });
+        });
+
+    </script>
     <script src="../../JS/nav.js"></script>
     <script src="../../JS/main.js"></script>
-</body>
+</body> 
 </html>
