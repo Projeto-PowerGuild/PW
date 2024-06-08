@@ -84,6 +84,24 @@ app.get('/api/products/:id', async (req, res) => {
   }
 });
 
+app.get('/api/shop', async (req, res) => {
+  const { id } = req.params;
+  const rawgUrl = `https://api.rawg.io/api/games/${id}`;
+  const apiKey = 'af44d7146ee947279a58c62db9ff347e';
+
+  try {
+    const response = await fetch(`${rawgUrl}?key=${apiKey}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    console.error(`Error fetching product ${id}:`, error.message, error.stack);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
