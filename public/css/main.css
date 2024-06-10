@@ -2,6 +2,11 @@ html{
     scroll-behavior: smooth;
 }
 
+main{
+    margin-top: 6rem;
+    padding: 0rem 1rem 1rem 1rem;
+}
+
 #titlePage{
     display: flex;
     justify-content: center;
@@ -17,7 +22,6 @@ html{
 }
 
 #trendingGame{
-    padding: 1rem;
     border-radius: 2px;
     display: flex;
     flex-direction: column;
@@ -65,10 +69,10 @@ html{
 }
 
 #trendingGameImage{
-    width: 73%;
-    height: 42rem;
+    width: 70%;
+    height: 32rem;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     border-image: fill 0 linear-gradient(#0001, var(--primary));
     display: flex;
@@ -107,43 +111,81 @@ html{
     margin: 10px;
 }
 
-section{
-    color: aliceblue;
-}
-
-.navbar {
-    background-color: #333;
-    overflow: hidden;
-}
-
-.navbar-menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+#filters{
+    position: fixed;
+    left: 1rem;
+    margin-top: 1rem;
+    width: calc(100% - 2rem);
+    padding: 1rem 0rem;
+    background-color: #1f1f1fd2;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--nav-text);
     display: flex;
-    justify-content: space-around;
-    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
 }
 
-.navbar-menu li {
-    margin: 0;
+#filter-list {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
 }
 
-.navbar-menu li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
+#filter-list li, #filter-list li a{
+    color: var(--nav-text);
     text-decoration: none;
 }
 
+#categories, #plataforms{
+    position: relative;
+}
 
-.navbar-menu li a:hover {
-    background-color: #111;
+.filter-category-title{
+    cursor: default;
+}
+
+.filter-category-list{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    list-style: none;
+    background-color: #222222d3;
+    display: none;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.filter-category-list li:hover{
+    background-color: #343434;
+}
+
+.filter-category-list li button, #filter-list li a{
+    width: 100%;
+    padding: .2rem 0rem;
+    background-color: transparent;
+    border: none;
+    color: var(--nav-text);
+    font-size: 1.1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-category-title:hover + .filter-category-list{
+    display: flex;
+}
+
+.filter-category-list:hover{
+    display: flex; 
 }
 
 section {
     padding: 20px;
+    color: aliceblue;
 }
 
 .platform {
@@ -176,7 +218,7 @@ header{
     width: 100%;
 }
 
-#search-bar{
+#search-game{
     width: 38rem;
     padding: .2rem 1rem;
     color: #fff;
@@ -194,11 +236,6 @@ nav{
     justify-content: center;
 }
 
-
-.menu-settings{
-    position: relative;
-}
-
 nav h3{
     color: var(--nav-text);
     cursor: default;
@@ -208,11 +245,11 @@ nav h3:hover + ul{
     display: flex;
 }
 
-ul:hover{
+header ul:hover{
     display: flex;
 }
 
-ul{
+header ul{
     position: absolute;
     width: 8rem;
     display: none;
@@ -220,12 +257,12 @@ ul{
     background-color: var(--primary);
 }
 
-ul li{
+header ul li{
     list-style: none;
     display: flex;
 }
 
-ul li a{
+header ul li a{
     width: 100%;
     height: 100%;
     padding: .3rem 0rem;
@@ -234,7 +271,7 @@ ul li a{
     text-decoration: none;
 }
 
-ul li:hover{
+header ul li:hover{
     background-color: #343434;
 }
 
@@ -243,6 +280,7 @@ ul li a:hover{
 }
 
 #mainContent{
+    padding-top: 6.5rem;
 }
 
 #productList{
@@ -329,20 +367,16 @@ ul li a:hover{
 }
 
 #profile{
-    list-style: none;
-    font-size: 1.1rem;
-    margin: 1rem 0rem;
-}
-
-#profile a{
     color: var(--nav-text);
     text-decoration: none;
     display: flex;
     gap: .8rem;
     align-items: center;
+    font-size: 1.1rem;
+    margin: 1rem 0rem;
 }
 
-#profile a:hover{
+#profile:hover{
     color: var(--secondary);
 }
 
@@ -352,6 +386,39 @@ ul li a:hover{
 
 #phone-menu{
     display: none;
+}
+
+#btnsNPMovies{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+#btnsNPMovies span{
+    color: var(--secondary);
+}
+
+#btnsNPMovies button{
+    cursor: pointer;
+}
+
+#prevButton{
+    background: transparent;
+    border: none;
+    transform: rotate(90deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#nextButton{
+    background: transparent;
+    border: none;
+    transform: rotate(-90deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media screen and (max-width: 1024px){

@@ -7,7 +7,7 @@ class Products {
         this.discount = discount;
         this.releaseDate = releaseDate;
         this.genre = genre;
-        this.image = image;
+        this.image = image
     }
 
     static async fetchTrendingGame() {
@@ -143,20 +143,53 @@ class Products {
             const productGenre = document.createElement('p');
             productGenre.textContent = `${product.genre}`;
 
+            /* const productplatforms = document.createElement('p');
+            productplatforms.textContent = `${product.platforms}`; */
+
             productImage.appendChild(productName);
             productDiv.appendChild(productImage);
             productDiv.appendChild(priceDiscount);
             // productDiv.appendChild(productDescription);
             // productDiv.appendChild(productLaunchDate);
             productDiv.appendChild(productGenre);
+            // productDiv.appendChild(productplatforms);
             productList.appendChild(productDiv);
         });
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    Products.displayTrendingGame();
-    Products.fetchProducts().then(products => {
-        Products.displayProducts(products);
-    });
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//     Products.displayTrendingGame();
+//     Products.fetchProducts().then(products => {
+//         Products.displayProducts(products);
+//     }); 
+// });
+
+document.addEventListener('DOMContentLoaded', async () => {
+    Products.displayTrendingGame()
+    const products = await Products.fetchProducts()
+
+    const urlParams = new URLSearchParams(window.location.search)
+    const filter = urlParams.get('filter')
+    const search = urlParams.get('search')
+    let filteredProducts = products
+
+    if (filter) {
+        filteredProducts = products.filter(product => product.genre.toLowerCase().includes(filter.toLowerCase()))
+    }
+
+    if (search) {
+        filteredProducts = products.filter(product => product.name.toLowerCase().includes(search.toLowerCase()))
+    }
+
+    Products.displayProducts(filteredProducts)
+})
+
+async function test(str) {
+    window.location.href = window.location.pathname + "?filter=" + str
+}
+
+async function searchGame(str) {
+    str = document.getElementById('search-game').value
+    window.location.href = window.location.pathname + "?filter=" + str
+}

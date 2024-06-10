@@ -26,46 +26,67 @@
 <body>
     <header>
         <a href="../../index.html"><img src="../../ASSETS/logo/image_2024-05-21_092537628-removebg-preview.png" alt="Logo" id="logo" draggable="false"></a>
+        <!-- Nav bar Menu -->
+        <input type="search" id="search-game" placeholder="Search" onchange="searchGame()" autocomplete="off">
         <nav>
-            <h3>Menu</h3>
-            <ul>
-                <li><a href="../../index.html"><img src="../../ASSETS/nav-icons/home.png" alt="Home" width="18rem">Home</a></li>
-                <li><a href="shop.html"><img src="../../ASSETS/nav-icons/shop-cart (1).png" alt="Movies" width="18rem">Shop</a></li>
-                <li><a href="community.html"><img src="../../ASSETS/nav-icons/community (1).png" alt="Series" width="18rem">Community</a></li>
-                <li><a href="profile.html"><img src="../../ASSETS/nav-icons/user.png" alt="Account" width="18rem">Profile</a></li>
-            </ul>
+            <!-- Menu Section -->
+            <div class="menu-settings">
+                <h3>Menu</h3>
+                <ul id="menu-dropdown">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="community.html">Community</a></li>
+                </ul>
+            </div>
             <!-- Settings Section -->
-            <h3>Settings</h3>
-            <ul>
-                <li><a href="../Settings/faq.html"><img src="../../ASSETS/nav-icons/faq.png" alt="FAQ" width="18rem">FAQ</a></li>
-                <li><a href="../Settings/terms.html"><img src="../../ASSETS/nav-icons/terms.png" alt="Terms of Use" width="18rem">Terms of Use</a></li>
-                <li><a href="../Settings/privacy.html"><img src="../../ASSETS/nav-icons/privacy.png" alt="Privacy" width="18rem">Privacy</a></li>
-                <li><a href="../Settings/contact.html"><img src="../../ASSETS/nav-icons/contact.png" alt="Contact us" width="18rem">Contact us</a></li>
-            </ul>
+            <div class="menu-settings" id="settings">
+                <h3>Settings</h3>
+                <ul id="settings-dropdown">
+                    <li><a href="../Settings/faq.html">FAQ</a></li>
+                    <li><a href="../Settings/terms.html">Terms of Use</a></li>
+                    <li><a href="../Settings/privacy.html">Privacy</a></li>
+                    <li><a href="../Settings/contact.html">Contact us</a></li>
+                </ul>
+            </div>
+            <a href="#" id="shop-cart"><img src="../../ASSETS/nav-icons/shop-cart (1).png" alt="Shop Cart" width="24rem"></a>
+            <a href="profile.html" id="profile"><img src="../../ASSETS/nav-icons/user.png" alt="Account" width="18rem">Login</a>
         </nav>
-        <li id="ceos">
-            <a href="../ceo.html"><img src="../../ASSETS/nav-icons/CEOS.png" alt="CEOS" width="18rem">CEOS</a>
-        </li>
-        </div>
     </header>
     <main>
         <!-- Movies Section -->
-        <nav class="navbar">
-            <ul class="navbar-menu">
+        <div id="filters">
+            <ul id="filter-list">
                 <li><a href="#news">Recently Updated</a></li>
-                <li><a href="#categories">Categories</a></li>
-                <li><a href="#platforms">Plataforms</a></li>
+                <li id="categories">
+                    <h2 class="filter-category-title">Categories</h2>
+                    <ul class="filter-category-list">
+                        <li><a href="shop.html">All</a></li>
+                        <li><button id="action-filter" onclick="test('action')">Action</button></li>
+                        <li><button id="shooter-filter" onclick="test('shooter')">Shooter</button></li>
+                        <li><button id="shooter-filter" onclick="test('fighting')">Fighting</button></li>
+                        <li><button id="shooter-filter" onclick="test('adventure')">Adventure</button></li>
+                        <li><button id="shooter-filter" onclick="test('rpg')">RPG</button></li>
+                        <li><button id="shooter-filter" onclick="test('puzzle')">Puzzle</button></li>
+                    </ul>
+                </li>
+                <li id="plataforms">
+                    <h2 class="filter-category-title">Plataforms</h2>
+                    <ul class="filter-category-list">
+                        <li><button>PC</button></li>
+                    </ul>
+                </li>
                 <li><a href="#wishlist">Wishlist</a></li>
             </ul>
-        </nav>
+        </div>
+
         <section id="mainContent">
             <div id="productList"></div>
         </section>
 
         <div id="btnsNPMovies">
-            <button id="prevButton">Previous</button>
+            <button id="prevButton"><img src="../../ASSETS/nav-icons/arrow.png" alt="previous" width="20rem"></button>
             <span id="currentPage">Page 1</span>
-            <button id="nextButton">Next Page</button>
+            <button id="nextButton"><img src="../../ASSETS/nav-icons/arrow.png" alt="next" width="20rem"></button>
         </div>
     </main>
 
