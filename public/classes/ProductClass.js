@@ -106,9 +106,9 @@ class Products {
             const productDiv = document.createElement('div');
             productDiv.className = 'product';
 
-            productDiv.addEventListener('click', () => {
+            /*productDiv.addEventListener('click', () => {
                 window.location.href = `www/html/gamesPage.html?id=${product.id}`;
-            });
+            });*/   
 
             const productName = document.createElement('h2');
             productName.textContent = product.name;
@@ -146,6 +146,11 @@ class Products {
             /* const productplatforms = document.createElement('p');
             productplatforms.textContent = `${product.platforms}`; */
 
+            const wishlistcheckbox = document.createElement('input')
+            wishlistcheckbox.type = 'checkbox'
+            wishlistcheckbox.id = 'wishlist-checkbox'
+            wishlistcheckbox.className = 'wishlist-checkbox'
+
             productImage.appendChild(productName);
             productDiv.appendChild(productImage);
             productDiv.appendChild(priceDiscount);
@@ -153,10 +158,11 @@ class Products {
             // productDiv.appendChild(productLaunchDate);
             productDiv.appendChild(productGenre);
             // productDiv.appendChild(productplatforms);
+            productDiv.appendChild(wishlistcheckbox)
             productList.appendChild(productDiv);
         });
     }
-}
+}   
 
 // document.addEventListener('DOMContentLoaded', () => {
 //     Products.displayTrendingGame();
@@ -193,3 +199,24 @@ async function searchGame(str) {
     str = document.getElementById('search-game').value
     window.location.href = window.location.pathname + "?filter=" + str
 }
+
+async function mainSearchGame(str) {
+    str = document.getElementById('search-game').value
+    window.location.href = window.location.pathname + "?filter=" + str
+}
+
+// // Seleciona todos os elementos com a classe 'wishlist-checkbox'
+// const checkboxes = document.getElementsByClassName('wishlist-checkbox');
+
+// // Converte a coleção HTML em um array para facilitar a iteração
+// Array.from(checkboxes).forEach((checkbox) => {
+//     // Adiciona um event listener de 'change' a cada checkbox
+//     checkbox.addEventListener('change', () => {
+//         // Verifica se o checkbox que disparou o evento está marcado
+//         if (checkbox.checked) {
+//             document.getElementById('filter-list').style.backgroundColor = 'red';
+//         } else {
+//             document.getElementById('filter-list').style.backgroundColor = '';
+//         }
+//     });
+// });

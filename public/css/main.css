@@ -229,6 +229,22 @@ header{
     outline: none;
 }
 
+/*#search-result{
+    position: absolute;
+    left: 0;
+    top: 6rem;
+    width: 100%;
+    padding: 2rem;
+    background-color: #1f1f1fc9;
+    backdrop-filter: blur(5px);
+    display: none;
+}
+
+#searchProductList{
+    overflow: scroll;
+    display: flex;
+}*/
+
 nav{
     display: flex;
     gap: 2rem;
@@ -341,6 +357,16 @@ ul li a:hover{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+#wishlist-checkbox{
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
 }
 
 .price-discount{
