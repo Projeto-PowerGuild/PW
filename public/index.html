@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet" href="login.html">
-
+    
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+        import "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    
     
         const firebaseConfig = {
             apiKey: "AIzaSyArlz9oe8Hy79b43MANnxucljif78y8fcY",
@@ -24,7 +26,7 @@
             measurementId: "G-HD8RBYG6JP"
         };
     
-        const app = initializeApp(firebaseConfig);
+            const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
 
         firebase.auth().onAuthStateChanged(user => {
