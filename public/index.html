@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="ASSETS/logo/favicon.ico" type="image/x-icon">
+    <title>PowerGuild</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="login.html">
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+        import "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    
+    
+        const firebaseConfig = {
+            apiKey: "AIzaSyArlz9oe8Hy79b43MANnxucljif78y8fcY",
+            authDomain: "infocars-31fff.firebaseapp.com",
+            projectId: "infocars-31fff",
+            storageBucket: "infocars-31fff.appspot.com",
+            messagingSenderId: "940285169353",
+            appId: "1:940285169353:web:305feefc94f90c82550718",
+            measurementId: "G-HD8RBYG6JP"
+        };
+    
+            const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        firebase.auth().onAuthStateChanged(user => {
+            if (!user) {
+                window.location.href = '/login.html';
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="ASSETS/logo/image_2024-05-21_092537628-removebg-preview.png" alt="Logo" id="logo" draggable="false"></a>
+        <!-- Nav bar Menu -->
+        <input type="search" id="search-bar" placeholder="Search">
+        <nav>
+            <!-- Menu Section -->
+            <div class="menu-settings">
+                <h3>Menu</h3>
+                <ul id="menu-dropdown">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="html/Menu/shop.html">Shop</a></li>
+                    <li><a href="html/Menu/community.html">Community</a></li>
+                </ul>
+            </div>
+            <!-- Settings Section -->
+            <div class="menu-settings" id="settings">
+                <h3>Settings</h3>
+                <ul id="settings-dropdown">
+                    <li><a href="HTML/Settings/faq.html">FAQ</a></li>
+                    <li><a href="HTML/Settings/terms.html">Terms of Use</a></li>
+                    <li><a href="HTML/Settings/privacy.html">Privacy</a></li>
+                    <li><a href="HTML/Settings/contact.html">Contact us</a></li>
+                </ul>
+            </div>
+            <li id="profile"><a href="html/Menu/profile.html"><img src="ASSETS/nav-icons/series.png" alt="Account" width="18rem"></a></li>
+            <li id="profile"><a href="html/Menu/profile.html"><img src="ASSETS/nav-icons/user.png" alt="Account" width="18rem">Login</a></li>
+        </nav>
+    </header>
+        <!-- Trending Game Section -->
+        <section id="trendingGameSection">
+            <div id="trendingGame">
+                <div id="trendingGameImage">
+                    <h1 id="trendingGameTitle"></h1>
+                    <div id="trendingGameInfo">
+                        <div>
+                            <p id="trendingGamePrice"></p>
+                            <span>/</span>
+                            <p id="trendingGameDiscount"></p>
+                        </div>
+                        <p id="trendingGameDescription"></p>
+                        <button id="trendingGameButton"><b>Buy Now</b></button>
+                    </div>
+                </div>
+            </div>
+            <a href="#mainContent">
+                <img src="ASSETS/nav-icons/arrow.png" alt="Arrow" width="50rem">
+            </a>
+        </section>
+        <section id="mainContent">
+            <h1 id="titlePage">Start shopping now!💛</h1>
+            <div id="productList"></div>
+        </section>
+
+    <script src="classes/ProductClass.js"></script>
+</body>
+</html>

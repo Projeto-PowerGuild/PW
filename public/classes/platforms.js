@@ -42,5 +42,5 @@ class PlatformManager {
 
 // Exemplo de uso
 PlatformManager.fetchPlatforms().then(platforms => {
-    PlatformManager.displayPlatforms(platforms);
+    PlatformManager.displayPlatforms(platforms);    
 });

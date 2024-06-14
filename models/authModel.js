@@ -24,7 +24,7 @@ class User {
 
     static async signUp(username, email, password) {
         try {
-            const result = await pool.query('INSERT INTO powerguild.users (nome, email, pwd) VALUES (?, ?, ?)', [username, email, password]);
+            const result = await pool.query('INSERT INTO powerguild.users (name, email, pwd) VALUES (?, ?, ?)', [username, email, password]);
             console.log("Insert result:", result);
             return new User(username, email, password);
         } catch (error) {
