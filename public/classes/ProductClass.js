@@ -36,12 +36,10 @@ class Products {
     static async displayTrendingGame() {
         const trendingGame = await Products.fetchTrendingGame();
         if (trendingGame) {
-            // document.getElementById('trendingGameImage').src = trendingGame.image;
             document.getElementById('trendingGameImage').style.backgroundImage = 'url(' + trendingGame.image + ')';
             document.getElementById('trendingGameTitle').textContent = trendingGame.name;
             document.getElementById('trendingGamePrice').textContent = `$${trendingGame.price.toFixed(2)}`;
             document.getElementById('trendingGameDiscount').textContent = `${trendingGame.discount}% Off`;
-            // document.getElementById('trendingGameDescription').textContent = trendingGame.description;
         }
     }
 
@@ -117,9 +115,6 @@ class Products {
             productImage.className = 'productImg';
             productImage.style.background = `url(${product.image}) center/cover no-repeat`;
 
-            // const productDescription = document.createElement('p');
-            // productDescription.textContent = product.description;
-
             const productPrice = document.createElement('p');
             productPrice.textContent = `Price: $${product.price.toFixed(2)} `;
 
@@ -137,8 +132,6 @@ class Products {
             priceDiscount.appendChild(priceDiscountSpan);
             priceDiscount.appendChild(productDiscount);
 
-            // const productLaunchDate = document.createElement('p');
-            // productLaunchDate.textContent = `Launch Date: ${product.releaseDate}`;
 
             const productGenre = document.createElement('p');
             productGenre.textContent = `${product.genre}`;
@@ -146,8 +139,6 @@ class Products {
             productImage.appendChild(productName);
             productDiv.appendChild(productImage);
             productDiv.appendChild(priceDiscount);
-            // productDiv.appendChild(productDescription);
-            // productDiv.appendChild(productLaunchDate);
             productDiv.appendChild(productGenre);
             productList.appendChild(productDiv);
         });
